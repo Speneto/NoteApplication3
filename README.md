@@ -1,7 +1,7 @@
-# Notes Application
+# Notes Application Test Case
 
-## The main class NotesApplication :
-  Has a constructor that takes in parameter author and save it as an instance variable and also the class contains the following methods
+## The application-spec file :
+  Has a describe function that tell us what other function are doing such as
   * create
   * listNote
   * getNoteId
@@ -11,17 +11,17 @@
 
 
 ##  create Method
-    This Method takes in content by the author and add it to the notelist array
+    This method makes sure that the author enters a valid note i.e the author does not enter an empty note
 ##  listNote Method
-    This Method list out the various note ids, the corresponding content and the author names  
+    This method list out all the authors notes and names   
 
 ##  getNoteId Method
-    This method takes in valid note id and returns the corresponding content as a string
+    This method make sure that only valid note ids are inputed i.e it reject string id and only allow numbers e.g 0,1,2,3,4 etc.
 
 ##  searchText Method
-    This method takes in a search_text and returns all notes that contains the search_text in it
+    This method makes sure that empty search text are not entered but a string should be entered
 
 ##  deleteNote Method
-    This method takes in a note_id and delete the corresponding note from note list array
+    This method make sure that only valid note ids are inputed i.e it reject string id and only allow numbers e.g 0,1,2,3,4 etc.
 ##  editNote Method
-    This method takes note_id and a new content and replace it with the exiting note
+    This method makes sure that a valid note id is entered and a valid note is entered.
