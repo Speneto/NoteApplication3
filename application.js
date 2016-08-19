@@ -14,7 +14,7 @@ function NotesApplication(author) {
   this.create = function(note_content){
     if(note_content == " "){
       return "Empty Inputs are not allowed";
-    }else{  
+    }else{
     this.notelist.push(note_content);
     //return this.notelist;
     }
@@ -44,6 +44,7 @@ function NotesApplication(author) {
     }
     else{
       return this.notelist[note_id];
+      //return "thanks";
     }
   }
 
@@ -54,19 +55,23 @@ function NotesApplication(author) {
 */
 
   this.searchText = function(search_text){
+    if(search_text != " "){
     for(var i =0; i < this.notelist.length; i++ ){
       if(this.notelist[i].includes(search_text)){
 
 
-      	console.log('Showing result for search :' + '['+search_text+']' +'\n' +
+      	return ('Showing result for search :' + '['+search_text+']' +'\n' +
       	           'Note Id :' + i + '\n' +
       	           this.notelist[i] +'\n' +
       	            'By Author :' + this.author);
       }else{
-      	// do nothing console.log('Search text not in search string');
+      	return ('Search text not in search string');
       }
 
     }
+  }else {
+    return  "Empty string is not a valid input to search for";
+  }
 
   }
 
@@ -77,8 +82,8 @@ function NotesApplication(author) {
 */
 
   this.deleteNote = function(note_id){
-    if(Math.abs(note_id) < this.notelist.length ){
-      delete this.notelist[note_id];
+    if(typeof note_id == "number" ){
+      return (delete this.notelist[note_id]);
     }else{
       return "Note Id is Not Valid";
     }
@@ -90,8 +95,9 @@ function NotesApplication(author) {
 *This function takes in note_id and a new content and replace the old one
 */
   this.editNote = function(note_id, new_content){
-    if(Math.abs(note_id) < this.notelist.length  && new_content !== ""){
+    if(typeof note_id == "number"  && new_content != " "){
       this.notelist[note_id] = new_content;
+      return this.notelist[note_id];
     }else{
       return "Note Id is Not Valid";
     }
