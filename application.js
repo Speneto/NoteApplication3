@@ -12,8 +12,12 @@ function NotesApplication(author) {
    * This function takes note content and add to notelist object
   */
   this.create = function(note_content){
+    if(note_content == " "){
+      return "Empty Inputs are not allowed";
+    }else{  
     this.notelist.push(note_content);
     //return this.notelist;
+    }
   }
 
 
@@ -23,9 +27,10 @@ function NotesApplication(author) {
   */
   this.listNote = function(){
     for(var i =0; i < this.notelist.length; i++ ){
-      console.log('Note Id :' + i + '\n' + this.notelist[i] );
+      //console.log('Note Id :' + i + '\n' + this.notelist[i] );
+      return ('Note Id :' + i + '\n' + this.notelist[i] );
     }
-    console.log('By Author :' + this.author);
+     return ('By Author :' + this.author);
 
   }
 
@@ -34,10 +39,11 @@ function NotesApplication(author) {
   *This function takes in the note_id and return the note content as string
   */
   this.getNoteId = function(note_id){
-    if(Math.abs(note_id) < this.notelist.length ){
-      console.log(this.notelist[note_id]);
-    }else{
-      console.log("Note Id is Not Valid");
+    if (!this.notelist[note_id]){
+      return "Strings are not valid Input";
+    }
+    else{
+      return this.notelist[note_id];
     }
   }
 
